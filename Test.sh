@@ -1,43 +1,28 @@
-📁 Fase 1: Preparação do Ambiente Local (Instalação do PsExec)
-#Execute este bloco na sua máquina de gerenciamento local para garantir que a pasta e as ferramentas estejam prontas:
-
-#PowerShell
-#1. Criar a estrutura de pastas local, se não existir
-New-Item -ItemType Directory -Force -Path "C:\Maintenance\Tools"
-
-#2. Transferir o pacote oficial PSTools
-Invoke-WebRequest -Uri "https://download.sysinternals.com/files/PSTools.zip" -OutFile "C:\Maintenance\Tools\PSTools.zip"
-
-# 3. Extrair os ficheiros de forma silenciosa
-Expand-Archive -Path "C:\Maintenance\Tools\PSTools.zip" -DestinationPath "C:\Maintenance\Tools" -Force
-
-# 4. Remover o ficheiro ZIP temporário
-Remove-Item -Path "C:\Maintenance\Tools\PSTools.zip" -Force
-
-# 5. Navegar para a pasta das ferramentas
-cd "C:\Maintenance\Tools"
-
-
-
-
-
-
-
-
-
-
 
 
 🔍 Fase 2: Conectividade e Validação da Máquina Remota
+
+# PREPARAÇÃO: TESTE DE REDE E CREDENCIAL (RODADO DIRETO NO TERMINAL LOCAL)
+
+# PASSO ÚNICO: Tentar mapear o compartilhamento administrativo IPC$
+# Se retornar "Comando concluído com êxito", a rede está perfeita.
+net use \\computer\IPC$ /user:DOMINIO\Usuario Senha
+
+# PREPARAÇÃO: VALIDAÇÃO DE PORTA E DIRETÓRIO DE TRABALHO
+
+# PASSO A: Navegar para o diretório de trabalho (Garante a execução do binário correto)
 cd "C:\Maintenance\Tools"
 
-# 1. Validar se a porta de rede do SMB está acessível na máquina alvo
-Test-NetConnection BRHLZ8294 -Port 445
+# PASSO B: Validar se a porta de rede do SMB (445) está acessível na máquina alvo
+# (É esperado que o parâmetro TcpTestSucceeded retorne True)
+Test-NetConnection computer -Port 445
 
-# 2. Primeiro contacto remoto (Aceitação silenciosa dos termos e recolha do hostname)
+
+# EXECUÇÃO: PRIMEIRO CONTATO REMOTO (TESTE DE FOGO)
+
+# 1. Primeiro contato remoto (Aceitação silenciosa dos termos e recolha do hostname)
+# O sucesso é confirmado se o terminal imprimir o nome do servidor remoto.
 .\PsExec.exe -accepteula \\computer hostname
-
-
 
 
 
