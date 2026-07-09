@@ -58,3 +58,11 @@ Reboot Pendente : $(if($preFlightData.PendingReboot){"SIM"}else{"NAO"})
 # Conversão e Execução
 $Enc = [Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($Core))
 .\PsExec.exe -s \\computer powershell -NoProfile -EncodedCommand $Enc
+
+
+
+
+
+
+
+

@@ -23,4 +23,4 @@ Test-NetConnection computer -Port 445
 
 #Reiniciar Computador
 #**** verificar se usuário está em reunião antes ****
-.\PsExec.exe -s \\<<COMPUTER>> shutdown /r /t 600 /f /c "Seu computador será reiniciado em 10 minutos para conclusão de atualizações. Salve seu trabalho imediatamente."
+.\PsExec.exe -s \\<<COMPUTER>> shutdown /r /t 60 /f /c "Seu computador será reiniciado em 1 minuto para conclusão de atualizações. Salve seu trabalho imediatamente."
