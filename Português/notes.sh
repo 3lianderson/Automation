@@ -33,12 +33,3 @@ ping BRH3Y8Q34 - RCerqueira - .NET + Chrome > NET Core removal sent Férias Dia 
 ping BRG5W1TZ3 - MLima - .NET > NET Core removal sent - Férias 10/07
 ping BR7M85SQ3 - ACosta - .NET - Sent Removal > NET Core - Férias Dia 20
 ping BR6LZ8294 - KNeuman - Windows Version - Férias Dia 21
-
-
-
-
-
-
-https://onedrive.live.com/personal/5d506f5831aac188/Documents/Documentos/Development/financial-dashboard/ControledeReceitasxDespesasFamiliar.xlsx
-
-https://d.docs.live.net/5d506f5831aac188/Documentos/Development/financial-dashboard/ControledeReceitasxDespesasFamiliar.xlsx
